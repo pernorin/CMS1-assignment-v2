@@ -3,4 +3,7 @@
 @using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
 @{
 	Layout = "Master.cshtml";
+	var newsPage = Umbraco.AssignedContentItem.AncestorOrSelf<PressReleases>();
 }
+<a href="@newsPage.Url()">tillbaka</a>
+<p>@Model.UpdateDate.ToString("D")</p>

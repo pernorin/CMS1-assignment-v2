@@ -3,4 +3,22 @@
 @using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
 @{
 	Layout = "Master.cshtml";
+	var items = Umbraco.AssignedContentItem.AncestorOrSelf<PressReleases>().Children;
+	var itemsToShow = items.Reverse().Take(5);
+}
+
+@if (items != null && items.Any())
+{
+	foreach(var item in itemsToShow)
+	{
+		
+		<div class="card col-6 my-4">
+			<a href="@item.Url()" class="text-decoration-none">
+				<div class="card-body">
+					<h2 class="card-title h5">@item.Value("title")</h2>
+					<p class="card-text">@item.Value("description")</p>
+				</div>
+			</a>
+		</div>
+	}
 }
