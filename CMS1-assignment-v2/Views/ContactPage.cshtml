@@ -1,0 +1,22 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<ContentModels.ContactPage>
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+@{
+	Layout = "Master.cshtml";
+}
+
+<div>
+	@Model.Description
+</div>
+@if (Model.Telephone != null && Model.Telephone.Length > 0)
+{
+	<div>Phone: @Model.Telephone</div>
+}
+@if (Model.Email != null && Model.Email.Length > 0)
+{
+	<div>Email: @Model.Email</div>
+}
+@if (Model.Address != null && Model.Address.Length>0)
+{
+	<div>Address: @Model.Address</div>
+}

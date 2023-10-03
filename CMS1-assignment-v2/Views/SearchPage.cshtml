@@ -1,0 +1,57 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<ContentModels.SearchPage>
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+
+@inject Umbraco.Cms.Core.IPublishedContentQuery publishedContentQuery
+@{
+	Layout = "Master.cshtml";
+	var searchQuery = Context.Request.Query["q"];
+}
+<form action="@Model.Url()" method="GET" id="search">
+    <div class="row justify-content-start mb-5">
+        <div class="col-4">
+            <input class="form-control form-control-lg" type="text" placeholder="sök" name="q" value="@searchQuery" />
+        </div>
+        <div class="col-4">
+            <button type ="submit" class="btn btn-secondary btn-lg px-4">
+                Sök
+            </button>
+        </div>
+    </div>
+
+    <div>
+
+        @if (!string.IsNullOrWhiteSpace(searchQuery))
+        {
+            var results = publishedContentQuery.Search(searchQuery);
+            long resultCount = results != null && results.Any() ? results.Count() : 0;
+            @Html.Raw(string.Format(Umbraco.GetDictionaryValue("Search.Results"), resultCount, searchQuery))
+            if (resultCount > 0)
+            {
+                foreach (var result in results)
+                {
+
+
+
+                    <div class="card col-6 my-4">
+
+                        <a href="@result.Content.Url()" class="text-decoration-none">
+                            <div class="card-body">
+                                <h2 class="card-title h5 ">
+                                    @(result.Content.HasProperty("title") && result.Content.HasValue("title") && !string.IsNullOrWhiteSpace(result.Content.Value<string>("title")) ? result.Content.Value("title") : result.Content.Name)
+                                </h2>
+                                @if (result.Content.HasProperty("description") && result.Content.HasValue("description") && !string.IsNullOrWhiteSpace(result.Content.Value<string>("description")))
+                                {
+                                    <p class="card-text">@(result.Content.Value<string>("description"))</p>
+                                }
+                            </div>
+                        </a>
+
+                    </div>
+                }
+                
+            }
+        }
+    </div>
+
+</form>
