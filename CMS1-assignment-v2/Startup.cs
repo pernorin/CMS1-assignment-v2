@@ -1,3 +1,5 @@
+using CMS1_assignment_v2.Business.Registers;
+
 namespace CMS1_assignment_v2
 {
 	public class Startup
@@ -34,6 +36,7 @@ namespace CMS1_assignment_v2
 				.AddWebsite()
 				.AddDeliveryApi()
 				.AddComposers()
+				.AddCustomHostedServices()
 				.Build();
 		}
 

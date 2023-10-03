@@ -4,6 +4,15 @@
 @{
 	Layout = "Master.cshtml";
 	var newsPage = Umbraco.AssignedContentItem.AncestorOrSelf<PressReleases>();
+	//var body = Model.Body.StripHtml();
+	var body = new HtmlString(Model.Body);
 }
 <a href="@newsPage.Url()">tillbaka</a>
 <p>@Model.UpdateDate.ToString("D")</p>
+<p>@Model.LeadText</p>
+@*<div>@Model.Body</div>*@
+<div>@body</div>
+@*<pre lang="HTML">@Model.Body</pre>*@
+
+
+
