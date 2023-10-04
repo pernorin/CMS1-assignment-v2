@@ -7,12 +7,17 @@
 	//var body = Model.Body.StripHtml();
 	var body = new HtmlString(Model.Body);
 }
-<a href="@newsPage.Url()">tillbaka</a>
-<p>@Model.UpdateDate.ToString("D")</p>
-<p>@Model.LeadText</p>
-@*<div>@Model.Body</div>*@
-<div>@body</div>
-@*<pre lang="HTML">@Model.Body</pre>*@
+<div class="py-3">
+	<a href="@newsPage.Url()" class=" my-5  font-size-large">&larr;tillbaka</a>
+</div>
+<div>
+	<p class="font-weight-bold">@Model.UpdateDate.ToString("D")</p>
+	<p class="lead">@Model.LeadText</p>
+	@*<div>@Model.Body</div>*@
+	<div>@body</div>
+</div>
+
+
 
 
 

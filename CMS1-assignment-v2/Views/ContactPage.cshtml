@@ -5,18 +5,22 @@
 	Layout = "Master.cshtml";
 }
 
-<div>
-	@Model.Description
+<div class="text-center mt-5">
+	<h2 class="p-3">
+		@Model.Description
+	</h2>
+	@if (Model.Telephone != null && Model.Telephone.Length > 0)
+	{
+		<div class="m-2 h5">Phone: @Model.Telephone</div>
+	}
+	@if (Model.Email != null && Model.Email.Length > 0)
+	{
+		<div class="m-2 h5">Email: @Model.Email</div>
+	}
+	@if (Model.Address != null && Model.Address.Length > 0)
+	{
+		<div class="m-2 h5">Address: @Model.Address</div>
+	}
 </div>
-@if (Model.Telephone != null && Model.Telephone.Length > 0)
-{
-	<div>Phone: @Model.Telephone</div>
-}
-@if (Model.Email != null && Model.Email.Length > 0)
-{
-	<div>Email: @Model.Email</div>
-}
-@if (Model.Address != null && Model.Address.Length>0)
-{
-	<div>Address: @Model.Address</div>
-}
+
+

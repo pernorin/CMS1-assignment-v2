@@ -1,0 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Young+Serif&display=swap');
+body {
+	background-color: hsl(152, 22%, 98%);
+	color: hsl(152, 7%, 7%) !important;
+}
+.font-serif {
+	font-family: 'Young Serif', serif;
+}
+.bg-custom-green {
+	background-color: hsl(152, 94%, 39%);
+}
+.font-weight-bold {
+	font-weight: bold;
+}
+.font-size-large {
+	font-size: 1.2rem;
+}

@@ -5,7 +5,14 @@
 	Layout = "Master.cshtml";
 }
 
-<div>
+<div class="text-center h3 m-3">
 	@Model.Description
 </div>
-<img src="@Model.Image.Url()" style="width: 100%; height:auto; " />
+<div class="position-relative my-5">
+    <img src="@Model.Image.Url()" class="w-100" />
+    <div class="position-absolute top-0 start-0 bottom-0 end-0 d-flex justify-content-center text-center" style="background-color: rgba(0, 0, 0, 0.5)">
+        
+        <p class="my-auto text-white w-75 lead">@Model.Text</p>
+    </div>
+</div>
+@*<img src="@Model.Image.Url()" class="img-fluid " />*@

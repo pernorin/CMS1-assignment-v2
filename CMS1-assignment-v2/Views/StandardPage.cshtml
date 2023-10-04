@@ -5,10 +5,12 @@
 	Layout = "Master.cshtml";
 }
 
-<div>
+<p class="text-center lead m-3">
 	@Model.Description
-</div>
-<img src="@Model.Image.Url()" style="height: 300px; width: auto;" />
-<p>
-	@Model.Text
 </p>
+<div class="row align-items-center px-5">
+	<img src="@Model.Image.Url()" style="max-height: 300px; width: auto;" class="col-4" />
+	<p class ="col-8 mx-5">
+		@Model.Text
+	</p>
+</div>
